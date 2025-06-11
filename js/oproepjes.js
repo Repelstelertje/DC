@@ -26,12 +26,11 @@ var oproepjes= new Vue({
                 .then(function(response){
                     var profs = response.data.profiles;
                     profs.forEach(function(p){
-                        if(p.src && p.src.indexOf('no_img_Vrouw.jpg') !== -1){
-                            p.src = 'img/fallback.svg';
-                        }
-                        if(p.profile_image_big && p.profile_image_big.indexOf('no_img_Vrouw.jpg') !== -1){
-                            p.profile_image_big = 'img/fallback.svg';
-                        }
+                        Object.keys(p).forEach(function(k){
+                            if(typeof p[k] === 'string' && p[k].indexOf('no_img_Vrouw.jpg') !== -1){
+                                p[k] = 'img/fallback.svg';
+                            }
+                        });
                     });
                     oproepjes.profiles = profs;
                 })

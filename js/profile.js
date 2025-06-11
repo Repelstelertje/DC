@@ -42,9 +42,11 @@ var profiel= new Vue({
             axios.get(api_url + this.profile_id)
                 .then(function(response){
                     that.profile = response.data.profile;
-                    if (that.profile.profile_image_big && that.profile.profile_image_big.indexOf('no_img_Vrouw.jpg') !== -1) {
-                        that.profile.profile_image_big = 'img/fallback.svg';
-                    }
+                    Object.keys(that.profile).forEach(function(k){
+                        if(typeof that.profile[k] === 'string' && that.profile[k].indexOf('no_img_Vrouw.jpg') !== -1){
+                            that.profile[k] = 'img/fallback.svg';
+                        }
+                    });
                 })
                 .catch(function (error) {
                     // console.log(error);

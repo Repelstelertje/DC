@@ -32,7 +32,7 @@
            v-for="profile in filtered_profiles"
           >
         <div class="card h-100">
-            <a :href="'profile.php?id=' + profile.id"><img class="card-img-top" :src="profile.src.replace('150x150', '300x300')" :alt="'Dating in ' + profile.province + ' with ' + profile.name" :title="'View the profile of ' + profile.name + ' from ' + profile.city"></a>
+            <a :href="'profile.php?id=' + profile.id"><img class="card-img-top" v-on:error="imgError" :src="profile.src.replace('150x150', '300x300')" :alt="'Dating in ' + profile.province + ' with ' + profile.name" :title="'View the profile of ' + profile.name + ' from ' + profile.city"></a>
             <div class="card-body">
             	<div class="card-top">
                   <h4 class="card-title">{{ profile.name }}</h4>  
