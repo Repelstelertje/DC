@@ -53,24 +53,47 @@
             ],
         ];
 
-        $canonical = $baseUrl;
+        $canonicalUrl = $baseUrl;
         $title = 'Dating Advertenties UK | Dating Contact';
         $ogType = 'website';
 
-        foreach ($pageMap as $key => $cfg) {
-            if (isset($_GET[$key]) && !empty($_GET[$key])) {
-                $val = htmlspecialchars($_GET[$key]);
-                $canonical = $baseUrl . sprintf($cfg['pattern'], $val);
-                $title = sprintf($cfg['title'], $val);
-                $ogType = $cfg['type'];
-                break;
+        $profileFetched = false;
+        if (isset($_GET['id']) && !empty($_GET['id'])) {
+            $id = preg_replace('/[^0-9]/', '', $_GET['id']);
+            if ($id) {
+                $response = @file_get_contents("https://22mlf09mds22.com/profile/get0/8/" . $id);
+                if ($response !== false) {
+                    $data = json_decode($response, true);
+                    if ($data && isset($data['profile']['name'])) {
+                        $profileName = $data['profile']['name'];
+                        $slug = strtolower($profileName);
+                        $slug = preg_replace('/[^a-z0-9]+/','-', $slug);
+                        $slug = trim($slug, '-');
+                        $canonicalUrl = $baseUrl . '/daten-met-' . $slug;
+                        $title = 'Daten met ' . $profileName;
+                        $ogType = 'profile';
+                        $profileFetched = true;
+                    }
+                }
             }
         }
 
-        echo '<link rel="canonical" href="' . $canonical . '" >';
+        if (!$profileFetched) {
+            foreach ($pageMap as $key => $cfg) {
+                if (isset($_GET[$key]) && !empty($_GET[$key])) {
+                    $val = htmlspecialchars($_GET[$key]);
+                    $canonicalUrl = $baseUrl . sprintf($cfg['pattern'], $val);
+                    $title = sprintf($cfg['title'], $val);
+                    $ogType = $cfg['type'];
+                    break;
+                }
+            }
+        }
+
+        echo '<link rel="canonical" href="' . $canonicalUrl . '" >';
         echo '<title>' . $title . '</title>';
         echo '<meta property="og:title" content="' . $title . '">';
-        echo '<meta property="og:url" content="' . $canonical . '">';
+        echo '<meta property="og:url" content="' . $canonicalUrl . '">';
         echo '<meta property="og:type" content="' . $ogType . '">';
         echo '<meta property="og:site_name" content="' . $companyName . '">';
         echo '<meta property="og:image" content="' . $baseUrl . '/img/fav/android-chrome-512x512.png">';

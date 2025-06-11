@@ -1,3 +1,12 @@
+function slugify(text){
+    return text.toString().toLowerCase()
+        .replace(/\s+/g,'-')
+        .replace(/[^a-z0-9-]/g,'')
+        .replace(/--+/g,'-')
+        .replace(/^-+|-+$/g,'');
+}
+window.slugify = slugify;
+
 var oproepjes= new Vue({
     el: "#oproepjes",
     created: function(){
@@ -42,11 +51,7 @@ var oproepjes= new Vue({
             event.target.src = 'img/fallback.svg';
         },
         slugify: function(text){
-            return text.toString().toLowerCase()
-                .replace(/\s+/g,'-')
-                .replace(/[^a-z0-9-]/g,'')
-                .replace(/--+/g,'-')
-                .replace(/^-+|-+$/g,'');
+            return slugify(text);
         },
         set_page_number: function(page){
             if(page <= 1){
