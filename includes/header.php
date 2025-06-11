@@ -1,6 +1,7 @@
 <?php
   $companyName = "Dating Contact";
   include('includes/nav_items.php');
+  include('includes/config.php');
 
   // Development error settings removed for production
   // ini_set('display_errors', 1);
@@ -34,23 +35,45 @@
     <link rel="icon" type="image/png" sizes="16x16" href="img/fav/favicon-16x16.png">
     <link rel="manifest" href="img/fav/site.webmanifest">
     <?php
-        $baseUrl = "https://datingcontact.co.uk"; // Consistent Base URL
-        if(isset($_GET['item']) && !empty($_GET['item'])){
-          $item = htmlspecialchars($_GET['item']);
-          echo '<link rel="canonical" href="' . $baseUrl . '/dating-' . $item . '" >';
-          echo '<title>Dating ' . $item . ' | Dating Contact</title>';
-        } else if(isset($_GET['id']) && !empty($_GET['id'])){
-          $id = htmlspecialchars($_GET['id']);
-          echo '<link rel="canonical" href="' . $baseUrl . '/profile?id=' . $id . '" >';
-          echo '<title>Dating with ' . $id . ' | Dating Contact</title>';
-        } else if(isset($_GET['tip']) && !empty($_GET['tip'])){
-          $tip = htmlspecialchars($_GET['tip']);
-          echo '<link rel="canonical" href="' . $baseUrl . '/datingtips-' . $tip . '" >';
-          echo '<title>Dating tips ' . $tip . ' | Dating Contact</title>';
-        } else {
-          echo '<link rel="canonical" href="' . $baseUrl . '" >';
-          echo '<title>Dating Advertenties UK | Dating Contact</title>';
+        $pageMap = [
+            'item' => [
+                'pattern' => '/dating-%s',
+                'title'   => 'Dating %s | Dating Contact',
+                'type'    => 'website'
+            ],
+            'id' => [
+                'pattern' => '/profile?id=%s',
+                'title'   => 'Dating with %s | Dating Contact',
+                'type'    => 'profile'
+            ],
+            'tip' => [
+                'pattern' => '/datingtips-%s',
+                'title'   => 'Dating tips %s | Dating Contact',
+                'type'    => 'article'
+            ],
+        ];
+
+        $canonical = $baseUrl;
+        $title = 'Dating Advertenties UK | Dating Contact';
+        $ogType = 'website';
+
+        foreach ($pageMap as $key => $cfg) {
+            if (isset($_GET[$key]) && !empty($_GET[$key])) {
+                $val = htmlspecialchars($_GET[$key]);
+                $canonical = $baseUrl . sprintf($cfg['pattern'], $val);
+                $title = sprintf($cfg['title'], $val);
+                $ogType = $cfg['type'];
+                break;
+            }
         }
+
+        echo '<link rel="canonical" href="' . $canonical . '" >';
+        echo '<title>' . $title . '</title>';
+        echo '<meta property="og:title" content="' . $title . '">';
+        echo '<meta property="og:url" content="' . $canonical . '">';
+        echo '<meta property="og:type" content="' . $ogType . '">';
+        echo '<meta property="og:site_name" content="' . $companyName . '">';
+        echo '<meta property="og:image" content="' . $baseUrl . '/img/fav/android-chrome-512x512.png">';
     ?>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGF9E4WFZD" nonce="2726c7f26c" SameSite=None; Secure></script>
@@ -70,7 +93,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="https://datingcontact.co.uk/">Dating Contact</a>
+                <a class="navbar-brand" href="<?php echo $baseUrl; ?>/">Dating Contact</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <?php include('includes/nav.php'); ?>
