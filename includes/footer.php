@@ -11,6 +11,7 @@
         <li><a href="partnerlinks" class="m-0">More partner links...</a></li>
     </ul>
     <span class="sub-text">Copyright &copy; <?php echo date('Y'); ?> <?php echo $companyName; ?> | The free datingsite of the UK </span>
+    <span class="policy-links sub-text"><a href="/privacy.php">Privacy Policy</a> | <a href="/cookie-policy.php">Cookie Policy</a></span>
 </footer>
 </div> <!-- /.oproepjes -->
 
