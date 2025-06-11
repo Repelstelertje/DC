@@ -3,68 +3,68 @@
 	$navItems = array(
 
 					array(
-						slug 	=> 'dating-east-midlands',
-						title 	=> 'East Midlands'
+						'slug' => 'dating-east-midlands',
+						'title' => 'East Midlands'
 					),
 					array(
-						slug 	=> 'dating-east-of-england',
-						title 	=> 'East of England'
+						'slug' => 'dating-east-of-england',
+						'title' => 'East of England'
 					),
 					array(
-						slug 	=> 'dating-london',
-						title 	=> 'London'
+						'slug' => 'dating-london',
+						'title' => 'London'
 					),
 					array(
-						slug 	=> 'dating-north-east-england',
-						title 	=> 'North East England'
+						'slug' => 'dating-north-east-england',
+						'title' => 'North East England'
 					),
 					array(
-						slug 	=> 'dating-north-west-england',
-						title 	=> 'North West England'
+						'slug' => 'dating-north-west-england',
+						'title' => 'North West England'
 					),
 					array(
-						slug 	=> 'dating-northern-ireland',
-						title 	=> 'Northern Ireland'
+						'slug' => 'dating-northern-ireland',
+						'title' => 'Northern Ireland'
 					),
 					array(
-						slug 	=> 'dating-scotland',
-						title 	=> 'Scotland'
+						'slug' => 'dating-scotland',
+						'title' => 'Scotland'
 					),
 					array(
-						slug 	=> 'dating-south-east-england',
-						title 	=> 'South East England'
+						'slug' => 'dating-south-east-england',
+						'title' => 'South East England'
 					),
 					array(
-						slug 	=> 'dating-south-west-england',
-						title 	=> 'South West England'
+						'slug' => 'dating-south-west-england',
+						'title' => 'South West England'
 					),
 					array(
-						slug 	=> 'dating-wales',
-						title 	=> 'Wales'
+						'slug' => 'dating-wales',
+						'title' => 'Wales'
 					),
 					array(
-						slug 	=> 'dating-west-midlands',
-						title 	=> 'West Midlands'
+						'slug' => 'dating-west-midlands',
+						'title' => 'West Midlands'
 					),
                     array(
-						slug 	=> 'dating-yorkshire-and-the-humber',
-						title 	=> 'Yorkshire and The Humber'
+						'slug' => 'dating-yorkshire-and-the-humber',
+						'title' => 'Yorkshire and The Humber'
 					),
 				);
 
 	$navItems2 = array(
 
 					array(
-						slug 	=> 'datingtips',
-						title 	=> 'Dating tips'
+						'slug' => 'datingtips',
+						'title' => 'Dating tips'
 					),
 					array(
-						slug 	=> 'free-dating',
-						title 	=> 'Free Dating'
+						'slug' => 'free-dating',
+						'title' => 'Free Dating'
 					),
 					array(
-						slug 	=> '',
-						title 	=> ''
+						'slug' => '',
+						'title' => ''
 					),
 				);
 ?>
