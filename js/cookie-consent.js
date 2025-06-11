@@ -74,3 +74,9 @@ function acceptAllCookies() {
   loadAnalytics();
   loadMarketing();
 }
+
+// Attach event handler programmatically to comply with CSP
+var acceptBtn = document.getElementById('accept-all');
+if (acceptBtn) {
+  acceptBtn.addEventListener('click', acceptAllCookies);
+}
