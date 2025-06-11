@@ -2,9 +2,15 @@
   $companyName = "Dating Contact";
   include('includes/nav_items.php');
 
-  ini_set('display_errors', 1);
-  ini_set('display_startup_errors', 1);
-  error_reporting(E_ALL);
+  // Development error settings removed for production
+  // ini_set('display_errors', 1);
+  // ini_set('display_startup_errors', 1);
+  // error_reporting(E_ALL);
+
+  // Log errors to file instead of displaying them
+  ini_set('display_errors', 0);
+  ini_set('log_errors', 1);
+  ini_set('error_log', __DIR__ . '/../php_errorlog');
 ?>
 
 <!DOCTYPE html>
