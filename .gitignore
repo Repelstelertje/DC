@@ -1,0 +1,16 @@
+# Dependency directories
+vendor/
+
+# Logs
+php_errorlog
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Cache directories
+.cache/
+
+# Temporary files
+*.tmp
