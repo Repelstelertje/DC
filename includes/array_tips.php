@@ -4,14 +4,14 @@
 
 					"dating-tips" => array(
 
-						name 	=> 	"Dating tips",
-						title 	=> 	"Hello",
-						tekst 	=> 	"You there"
+						'name' => 	"Dating tips",
+						'title' => 	"Hello",
+						'tekst' => 	"You there"
 						),
 					"free-dating" => array(
 
-						name 	=> 	"Free Dating",
-						title 	=> 	"No",
-						tekst 	=> 	"Go away"
+						'name' => 	"Free Dating",
+						'title' => 	"No",
+						'tekst' => 	"Go away"
 						),
 					);
