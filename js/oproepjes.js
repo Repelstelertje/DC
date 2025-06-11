@@ -44,7 +44,6 @@ var oproepjes= new Vue({
                     oproepjes.profiles = profs;
                 })
                 .catch(function (error) {
-                    // console.log(error);
                 });
         },
         imgError: function(event){
