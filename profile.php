@@ -9,7 +9,7 @@
         <hr>
         <div class="row">
             <div class="col-sm-4 text-center">
-                <img class="profile-pic" :src="profile.profile_image_big" :alt="'Dating in ' + profile.province + ' with ' + profile.name" :title="'Profile picture from ' + profile.name">
+                <img class="profile-pic" v-on:error="imgError" :src="profile.profile_image_big" :alt="'Dating in ' + profile.province + ' with ' + profile.name" :title="'Profile picture from ' + profile.name">
             </div>
             <div class="col-sm-8">
                 <h4>About {{ profile.name }}:</h4>
