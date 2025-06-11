@@ -64,7 +64,7 @@
                         $slug = strtolower($profileName);
                         $slug = preg_replace('/[^a-z0-9]+/','-', $slug);
                         $slug = trim($slug, '-');
-                        $canonicalUrl = $baseUrl . '/daten-met-' . $slug;
+                        $canonicalUrl = $baseUrl . '/dating-with-' . $slug;
                         $title = 'Dating with ' . $profileName;
                         $ogType = 'profile';
                         $profileFetched = true;
