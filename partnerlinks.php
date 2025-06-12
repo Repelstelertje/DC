@@ -8,7 +8,7 @@
         <div class="jumbotron my-4">
                 <h1 class="text-center">Partner links:</h1>
                 <div class="row">
-                        <?php foreach($columns as $col) : ?>
+                        <?php foreach($columns as $col): ?>
                         <div class="col-md-6 col-12">
                                 <ul>
                                 <?php foreach($col as $link) : ?>
@@ -20,6 +20,4 @@
                 </div>
         </div>
 </div>
-<?php
-	include('includes/footer.php');
-?>
+<?php include('includes/footer.php'); ?>
