@@ -1,5 +1,4 @@
 <?php
-<?php
 $baseUrl = getenv('ONL_BASE_URL') ?: 'https://datingcontact.co.uk';
 $api_url = getenv('BASE_API_URL') ?: 'https://22mlf09mds22.com';
 
