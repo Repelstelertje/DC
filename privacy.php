@@ -1,5 +1,6 @@
 <?php
-include('includes/header.php');
+	define('TITLE', 'Privacy Policy');
+	include('includes/header.php');
 ?>
 <div class="container">
 	<div class="jumbotron my-4">
@@ -50,6 +51,4 @@ include('includes/header.php');
 		<p>Last updated: June 2025</p>
 	</div>
 </div>
-<?php
-include('includes/footer.php');
-?>
+<?php include('includes/footer.php'); ?>

@@ -1,7 +1,8 @@
 <?php
+define('TITLE', 'Cookie Policy');
 include('includes/header.php');
 ?>
-<div class="container mt-4 mb-4">
+<div class="container">
 	<div class="jumbotron my-4">
 		<h1>Cookie Policy – datingcontact.co.uk</h1>
 		<p>This website, datingcontact.co.uk, uses cookies. This policy explains what cookies are, which ones we use, and how you can manage your preferences.</p>
@@ -25,6 +26,4 @@ include('includes/header.php');
 		<p>Last updated: June 2025</p>
 	</div>
 </div>
-<?php
-include('includes/footer.php');
-?>
+<?php include('includes/footer.php'); ?>

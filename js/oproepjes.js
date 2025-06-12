@@ -1,12 +1,3 @@
-function slugify(text){
-    return text.toString().toLowerCase()
-        .replace(/\s+/g,'-')
-        .replace(/[^a-z0-9-]/g,'')
-        .replace(/--+/g,'-')
-        .replace(/^-+|-+$/g,'');
-}
-window.slugify = slugify;
-
 var oproepjes= new Vue({
     el: "#oproepjes",
     created: function(){
@@ -31,26 +22,35 @@ var oproepjes= new Vue({
     },
     methods:  {
         init: function(){
+            if (typeof api_url === 'undefined' || !api_url) {
+                return;
+            }
             axios.get(api_url)
                 .then(function(response){
                     var profs = response.data.profiles;
                     profs.forEach(function(p){
-                        Object.keys(p).forEach(function(k){
-                            if(typeof p[k] === 'string' && p[k].indexOf('no_img_Vrouw.jpg') !== -1){
-                                p[k] = 'img/fallback.svg';
-                            }
-                        });
+                        if(p.src && p.src.indexOf('no_img_Vrouw.jpg') !== -1){
+                            p.src = 'img/fallback.svg';
+                        }
+                        if(p.profile_image_big && p.profile_image_big.indexOf('no_img_Vrouw.jpg') !== -1){
+                            p.profile_image_big = 'img/fallback.svg';
+                        }
                     });
                     oproepjes.profiles = profs;
                 })
                 .catch(function (error) {
+                    // console.log(error); // removed debugging statement
                 });
         },
         imgError: function(event){
             event.target.src = 'img/fallback.svg';
         },
         slugify: function(text){
-            return slugify(text);
+            return text.toString().toLowerCase()
+                .replace(/\s+/g,'-')
+                .replace(/[^a-z0-9-]/g,'')
+                .replace(/--+/g,'-')
+                .replace(/^-+|-+$/g,'');
         },
         set_page_number: function(page){
             if(page <= 1){

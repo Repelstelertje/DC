@@ -5,11 +5,11 @@
 <div class="container" id="profiel" v-cloak>
     <div id="top-banner"></div>
     <div class="jumbotron my-4">
-        <h1 class="text-center">Dating with {{ profile.name }} from {{ profile.city }}</h1>
+        <h1 class="text-center">Date with {{ profile.name }} from {{ profile.city }}</h1>
         <hr>
         <div class="row">
             <div class="col-sm-4 text-center">
-                <img class="profile-pic" v-on:error="imgError" :src="profile.profile_image_big" :alt="'Dating in ' + profile.province + ' with ' + profile.name" :title="'Profile picture from ' + profile.name">
+                <img class="profile-pic" :src="profile.profile_image_big" :alt="'Date in ' + profile.province + ' with ' + profile.name" :title="'Profile picture from ' + profile.name" @error="imgError">
             </div>
             <div class="col-sm-8">
                 <h4>About {{ profile.name }}:</h4>
@@ -29,8 +29,8 @@
     <div id="footer-banner"></div>
 </div><!-- Container -->
 
-<script nonce="2726c7f26c">    
-    var api_url= "https://22mlf09mds22.com/profile/get0/2/";
+<script>    
+    var api_url= "<?php echo $config['PROFILE_ENDPOINT']; ?>";
     var ref_id= "32"; //de ref_id vd landingwebsite
 </script>
 <?php 

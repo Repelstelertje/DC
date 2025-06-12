@@ -1,11 +1,16 @@
 <?php
-	define("TITLE", "UK's best dating site");
+    $config = include('includes/config.php');
+    if (!empty($config['DEBUG'])) {
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
+    }
+    define("TITLE", "UK's best dating site");
 
-    include('includes/array_prov.php');
-    include('includes/array_tips.php');
-  	include('includes/header.php');
+    include("includes/array_prov.php");
+    include("includes/array_tips.php");
+    include("includes/header.php");
 ?>
-
 <div class="container">
     <!-- Jumbotron Header -->
     <div class="jumbotron my-4 text-center">
@@ -26,7 +31,7 @@
     <div class="row" v-cloak>
         <div class="col-lg-3 col-md-6 mb-4 portfolio-item" id="Slankie" v-for="profile in filtered_profiles">
             <div class="card h-100">
-                <a :href="'dating-with-' + slugify(profile.name) + '?id=' + profile.id"><img class="card-img-top" v-on:error="imgError" :src="profile.src.replace('150x150', '300x300')" :alt="profile.name + ' dating in ...'"></a>
+                <a :href="'date-with-' + slugify(profile.name) + '?id=' + profile.id"><img class="card-img-top" v-on:error="imgError" :src="profile.src.replace('150x150', '300x300')" :alt="profile.name + ' dating in ...'"></a>
                 <div class="card-body">
                     <div class="card-top">
                         <h4 class="card-title">{{ profile.name }}</h4>  
@@ -38,29 +43,23 @@
                         <li class="list-group-item">Province: {{ profile.province }}</li>
                     </ul>
                 </div>
-                <a :href="'dating-with-' + slugify(profile.name) + '?id=' + profile.id" class="card-footer btn btn-primary">View profile</a>
+                <a :href="'date-with-' + slugify(profile.name) + '?id=' + profile.id" class="card-footer btn btn-primary">View profile</a>
             </div>
         </div>
-        <script nonce="2726c7f26c">
-            var api_url= "https://22mlf09mds22.com/profile/banner/12";
+        <script>
+            var api_url= "<?php echo $config['BANNER_ENDPOINT']; ?>";
         </script>
         <!-- Pagination -->
         <nav class="nav-pag" aria-label="Page navigation">
             <ul class="pagination flex-wrap justify-content-center">
                 <li class="page-item"> 
-                    <a class="page-link" aria-label="Previous" v-on:click="set_page_number(page-1)" >
-                        <span aria-hidden="true">&laquo;</span>
-                        <span class="sr-only">Previous</span>
-                    </a>
+                    <a class="page-link" aria-label="Previous" v-on:click="set_page_number(page-1)" ><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a>
                 </li>
                 <li v-for="page_number in max_page_number" class="page-item" v-bind:class="{ active: page_number == page }" >
                     <a class="page-link" v-on:click="set_page_number(page_number)">{{ page_number }}</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" aria-label="Next" v-on:click="set_page_number(page+1)" >
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Next</span>
-                    </a>
+                    <a class="page-link" aria-label="Next" v-on:click="set_page_number(page+1)" ><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a>
                 </li>
             </ul>
         </nav>
@@ -86,6 +85,12 @@
         <p><em>"My name is Jean. I started online dating over a year ago because it is sometimes difficult for me to meet people because of my disabilities. Namely, I have been very hard of hearing since birth. Although it is not always a hurdle for me, it still proves quite a challenge for some. After all, one has to know or learn sign language, for many this is a difficult task and they choose not to enter into a relationship. Through your website Dating Contact I came into contact with Juliette. It turned out she had a little daughter who also lost her hearing at a young age. This immediately gave me a feeling of recognition. We've been together for months now, but I wanted to send a thank-you note to Dating Contact. Fantastic that people can reach each other this way! Chapeau!"</em><br />
         <span class="stelletje"> - Jean en Juliette</span></p>
     </div>
+    <div class="jumbotron text-center">
+        <h2>Dating Tips</h2>
+        <?php foreach ($datingtips as $tips => $item) { ?>
+        <a href="datingtips-<?php echo $tips; ?>" class="btn btn-primary btn-tips"><?php echo $item['name']; ?></a>
+        <?php } ?>
+    </div>
     <div id="footer-banner"></div>
     <div class="jumbotron text-center">
         <div class="">
@@ -93,11 +98,9 @@
             <a href="https://myflings.co.uk" target="_blank" class="m-0" title="MyFlings.co.uk - Discover Exciting Connections in the UK!">MyFlings</a> -
             <a href="https://myaffairs.co.uk" target="_blank" class="m-0" title="MyAffairs.co.uk - Explore Discreet Affairs in the UK!">MyAffairs</a> - 
             <a href="https://ukflirt.co.uk" target="_blank" class="m-0" title="UKFlirt.co.uk - Find Flirts and Connections in the UK!">UKFlirt</a> - 
-            <!-- 
             <a href="https://uktease.co.uk" target="_blank" class="m-0" title="UKTease.co.uk - Tease and Connect in the United Kingdom!">UKTease</a> - 
             <a href="https://ukdesire.co.uk" target="_blank" class="m-0" title="UKDesire.co.uk - Explore Your Desires in the United Kingdom!!">UKDesire</a> - 
             <a href="https://discreetfling.co.uk" target="_blank" class="m-0" title="DiscreetFling.co.uk - Explore Private Flings in the UK!">DiscreetFling</a>
-            -->
         </div>
         <hr>
         <div class="">
@@ -109,12 +112,10 @@
             <a href="https://maturetemptations.co.uk" target="_blank" class="m-0" title="MatureTemptations.co.uk - Tempting Encounters in the UK!">MatureTemptations</a> - 
             <a href="https://secrethookups.co.uk" target="_blank" class="m-0" title="SecretHookupsUK.co.uk - Find Discreet Connections in the UK">SecretHookupsUK</a> - 
             <a href="https://discreethookups.co.uk" target="_blank" class="m-0" title="DiscreetHookupsUK.co.uk - Private Connections in the UK">DiscreetHookupsUK</a> - 
-            <!-- 
             <a href="https://myhookups.co.uk" target="_blank" class="m-0" title="MyHookupsUK.co.uk - Connecting for Hookups in the UK!">MyHookupsUK</a> - 
             <a href="https://discreetsexfinder.co.uk" target="_blank" class="m-0" title="DiscreetSexFinder.co.uk - Find Private Encounters in the UK">DiscreetSexFinder</a> - 
             <a href="https://milftemptations.co.uk" target="_blank" class="m-0" title="MilfTemptations.co.uk - Satisfying Temptations in the UK!">MilfTemptations</a> - 
             <a href="https://secretsexfinder.co.uk" target="_blank" class="m-0" title="SecretSexFinder.co.uk - Find Discreet Connections in the UK">SecretSexFinder</a>
-            -->
         </div>  
         <hr>
         <div class="">
@@ -125,6 +126,4 @@
         </div>
     </div>
 </div><!-- container -->
-<?php
-  	include('includes/footer.php');
-?>
+<?php include('includes/footer.php'); ?>
