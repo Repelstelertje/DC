@@ -36,7 +36,7 @@
     <meta name="theme-color" content="#ffffff">
     <?php
         // Canonical URL logic
-        $baseUrl = "https://datingcontact.co.uk";
+        $baseUrl = $config['BASE_URL'] ?? $baseUrl;
         $canonicalUrl = $baseUrl; // Default canonical URL
         $title = "Dating Contact"; // Default title
         if (isset($_GET['item'])) {
