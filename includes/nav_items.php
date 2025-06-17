@@ -58,10 +58,10 @@
 						'slug' => 'datingtips',
 						'title' => 'Dating tips'
 					),
-					array(
-						'slug' => 'free-dating',
-						'title' => 'Free Dating'
-					),
+                                        array(
+                                                'slug' => 'datingtips-free-dating',
+                                                'title' => 'Free Dating'
+                                        ),
 					array(
 						'slug' => '',
 						'title' => ''
