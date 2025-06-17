@@ -81,6 +81,7 @@
             $canonicalUrl = $baseUrl . "/datingtips-" . htmlspecialchars($_GET['tip']);
             $title = "Datingtips " . htmlspecialchars($_GET['tip']);
         }
+        $og_url = $canonicalUrl;
         echo '<link rel="canonical" href="' . $canonicalUrl . '" >';
         echo '<title>' . $title . '</title>';
     ?>
@@ -96,7 +97,7 @@
         $og_title = $default_title;
         $og_description = $default_description;
         $og_image = $default_image;
-        $og_url = $default_url;
+        $og_url = $canonicalUrl;
         $og_pages = [
             'dating-east-midlands' => [
                 'title' => 'Dating in East Midlands',
@@ -165,7 +166,7 @@
                 $og_title = $data['title'];
                 $og_description = $data['description'];
                 $og_image = $data['image'];
-                $og_url = $current_url;
+                $og_url = $canonicalUrl;
                 break;
             }
         }
