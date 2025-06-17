@@ -39,7 +39,21 @@
         $baseUrl = $config['BASE_URL'] ?? $baseUrl;
         $canonicalUrl = $baseUrl; // Default canonical URL
         $title = "Dating Contact"; // Default title
-        if (isset($_GET['item'])) {
+
+        $script = basename($_SERVER['SCRIPT_NAME']);
+        if ($script === 'privacy.php') {
+            $canonicalUrl = $baseUrl . '/privacy.php';
+            $title = 'Privacy Policy';
+        } elseif ($script === 'cookie-policy.php') {
+            $canonicalUrl = $baseUrl . '/cookie-policy.php';
+            $title = 'Cookie Policy';
+        } elseif ($script === 'partnerlinks.php') {
+            $canonicalUrl = $baseUrl . '/partnerlinks.php';
+            $title = 'Partnerlinks';
+        } elseif ($script === 'datingtips.php' && !isset($_GET['tip'])) {
+            $canonicalUrl = $baseUrl . '/datingtips.php';
+            $title = 'Dating Tips';
+        } elseif (isset($_GET['item'])) {
             $canonicalUrl = $baseUrl . "/dating-" . htmlspecialchars($_GET['item']);
             $title = "Dating " . htmlspecialchars($_GET['item']);
         } else if (isset($_GET['id'])) {
