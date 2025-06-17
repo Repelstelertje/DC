@@ -1,18 +1,32 @@
-<?php 
-        define("TITLE", "Dating Tips");
+<?php
+define("TITLE", "Dating Tips");
 
-        include('includes/array_tips.php');
-        include('includes/array_prov.php');
-include('includes/header.php');
+// Load configuration for base URL
+$config = include('includes/config.php');
+$baseUrl = $config['BASE_URL'] ?? '';
+
+// If the 'tip' parameter is missing, redirect to the default tips page
+if (!isset($_GET['tip'])) {
+    header('Location: ' . rtrim($baseUrl, '/') . '/datingtips');
+    exit;
+}
+
+include('includes/array_tips.php');
+include('includes/array_prov.php');
 include('includes/utils.php');
 
-$tips = null;
-if(isset($_GET['tip'])) {
-        $datingtip = strip_bad_chars($_GET['tip']);
-        if(isset($datingtips[$datingtip])) {
-                $tips = $datingtips[$datingtip];
-        }
+$datingtip = strip_bad_chars($_GET['tip']);
+
+// If the supplied tip does not exist, return a 404 response
+if (!isset($datingtips[$datingtip])) {
+    header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
+    include '404.php';
+    exit;
 }
+
+$tips = $datingtips[$datingtip];
+
+include('includes/header.php');
 ?>
 <div class="container">
 <?php if($tips): ?>
