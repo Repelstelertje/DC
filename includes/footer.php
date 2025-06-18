@@ -8,7 +8,7 @@
         <li><a href="https://zoekertjesbelgie.be/" target="_blank" class="m-0">Zoekertjes België</a> - </li>
         <li><a href="https://datingnebenan.de/" target="_blank" class="m-0">Dating Nebenan</a> - </li>
         <li><a href="https://e-notifyer.nl/" target="_blank" class="m-0">E-notifyer</a> - </li>
-        <li><a href="partnerlinks" class="m-0">More partner links...</a></li>
+        <li><a href="/partnerlinks.php" class="m-0">More partner links...</a></li>
     </ul>
     <span class="sub-text">Copyright &copy; <?php echo date('Y'); ?> <?php echo $companyName; ?> | The free datingsite of the UK </span>
     <span class="policy-links sub-text"><a href="/privacy.php">Privacy Policy</a> | <a href="/cookie-policy.php">Cookie Policy</a></span>

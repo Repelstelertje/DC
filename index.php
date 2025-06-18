@@ -19,8 +19,9 @@
         <p>Welcome to <a href="index.php">Dating Contact</a>, the UK's premier dating site, where countless singles find love and companionship across the nation. From the bustling streets of London to the scenic views of the Scottish Highlands, Dating Contact offers a vast network of singles ready to meet that special someone. Whether you're seeking a casual chat or a serious relationship, our platform provides the tools and community to support your journey. Join Dating Contact and start your adventure in the rich and diverse dating landscape of the UK.</p>
         <h2>Find women near you!</h2>
         <?php
+            $baseUrl = $config['BASE_URL'];
             foreach ($navItems as $item) {
-                echo "<a class=\"btn btn-primary prov-btn\" href=\"$item[slug]\">$item[title]</a>";
+                echo "<a class=\"btn btn-primary prov-btn\" href=\"$baseUrl/$item[slug]\">$item[title]</a>";
             }
         ?>
     </div>
@@ -88,7 +89,7 @@
     <div class="jumbotron text-center">
         <h2>Dating Tips</h2>
         <?php foreach ($datingtips as $tips => $item) { ?>
-        <a href="datingtips-<?php echo $tips; ?>" class="btn btn-primary btn-tips"><?php echo $item['name']; ?></a>
+        <a href="<?php echo $baseUrl; ?>/datingtips-<?php echo $tips; ?>" class="btn btn-primary btn-tips"><?php echo $item['name']; ?></a>
         <?php } ?>
     </div>
     <div id="footer-banner"></div>

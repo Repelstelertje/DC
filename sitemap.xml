@@ -68,7 +68,12 @@
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://datingcontact.co.uk/datingtips</loc>
+    <loc>https://datingcontact.co.uk/datingtips.php</loc>
+    <lastmod>2025-06-12</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://datingcontact.co.uk/datingtips-dating-tips</loc>
     <lastmod>2025-06-12</lastmod>
     <priority>0.80</priority>
   </url>
