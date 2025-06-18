@@ -9,11 +9,11 @@
        		<h1>Oops!</h1>
        		<h2>Unfortunately, the requested page was not found.</h2>
           	<p>Reasons may include:<br />1. The profile you are trying to access no longer exists.<br />2. The web address has not been entered correctly.<br /><br />Use the menu on this page to make a new selection.</p>
-        	<a href="index.php" class="btn btn-primary"> Homepage </a>
+                <a href="<?php echo $baseUrl; ?>/index.php" class="btn btn-primary"> Homepage </a>
 		  	<?php
-		    	foreach ($navItems as $item) {
-		        echo "<a class=\"btn btn-primary\" href=\"$item[slug]\" style=\"margin: 1px;\">$item[title]</a>";
-		     	}
+                        foreach ($navItems as $item) {
+                        echo "<a class=\"btn btn-primary\" href=\"$baseUrl/$item[slug]\" style=\"margin: 1px;\">$item[title]</a>";
+                        }
 		    ?>
         </div>
 	</div>

@@ -38,7 +38,7 @@
         // Canonical URL logic
         $baseUrl = $config['BASE_URL'] ?? $baseUrl;
         $canonicalUrl = $baseUrl; // Default canonical URL
-        $title = "Dating Contact"; // Default title
+        $title = "Dating Contact: Dating Advertenties UK"; // Default title
 
         $script = basename($_SERVER['SCRIPT_NAME']);
         if ($script === 'privacy.php') {
