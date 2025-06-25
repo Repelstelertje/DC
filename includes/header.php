@@ -114,7 +114,7 @@
     $og_title = $default_title;
     $og_description = $default_description;
     $og_image = $default_image;
-    $og_url = $canonicalUrl;
+    $og_url = $default_url;
     $og_pages = [
         'dating-east-midlands' => [
             'title' => 'Dating in East Midlands',
