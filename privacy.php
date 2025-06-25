@@ -1,6 +1,9 @@
 <?php
-	define('TITLE', 'Privacy Policy');
-	include('includes/header.php');
+$base = __DIR__;
+define('TITLE', 'Privacy Policy');
+$canonical = 'https://datingcontact.co.uk/privacy';
+$pageTitle = 'Privacy Policy - Dating Contact';
+include $base . '/includes/header.php';
 ?>
 <div class="container">
 	<div class="jumbotron my-4">
@@ -51,4 +54,4 @@
 		<p>Last updated: June 2025</p>
 	</div>
 </div>
-<?php include('includes/footer.php'); ?>
+<?php include $base . '/includes/footer.php'; ?>

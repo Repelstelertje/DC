@@ -1,51 +1,41 @@
-<?php
+<?php 
+$base = __DIR__;
 define("TITLE", "Dating Tips");
 
-// Load configuration for base URL
-$config = include('includes/config.php');
-$baseUrl = $config['BASE_URL'] ?? '';
+$canonical = 'https://datingcontact.co.uk/datingtips';
+$pageTitle = 'Dating Tips - Dating Contact';
 
-// If the 'tip' parameter is missing, redirect to the default tips page
-if (!isset($_GET['tip'])) {
-    header('Location: ' . rtrim($baseUrl, '/') . '/datingtips');
-    exit;
+include $base . '/includes/array_tips.php';
+
+require_once $base . '/includes/utils.php';
+
+$datingtip = 'datingtips';
+if(isset($_GET['item'])) {
+        $candidate = strip_bad_chars($_GET['item']);
+        if (isset($datingtips[$candidate])) {
+                $datingtip = $candidate;
+        }
+}
+$tips = $datingtips[$datingtip] ?? null;
+
+if (!$tips) {
+        header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
+        include $base . '/404.php';
+        exit;
 }
 
-include('includes/array_tips.php');
-include('includes/array_prov.php');
-include('includes/utils.php');
-
-$datingtip = strip_bad_chars($_GET['tip']);
-
-// If the supplied tip does not exist, return a 404 response
-if (!isset($datingtips[$datingtip])) {
-    header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
-    include '404.php';
-    exit;
-}
-
-$tips = $datingtips[$datingtip];
-
-include('includes/header.php');
+$metaDescription = $tips['meta'];
+include $base . '/includes/header.php';
 ?>
+
 <div class="container">
-<?php if($tips): ?>
         <div class='jumbotron my-4'>
-                <h1 class='text-center'><?php echo $tips["title"]; ?></h1>
+                <h1 class='text-center'><?php echo htmlspecialchars($tips["title"], ENT_QUOTES, 'UTF-8'); ?></h1>
+                <?php echo $tips["intro"]; ?>
         </div>
         <div class='jumbotron my-4'>
                 <?php echo $tips["tekst"]; ?>
         </div>
-<?php else: ?>
-        <div class='jumbotron my-4'>
-                <h1 class='text-center'>Dating Tips</h1>
-                <ul>
-                <?php foreach($datingtips as $key => $tip): ?>
-                        <li><a href="datingtips.php?tip=<?php echo $key; ?>"><?php echo $tip['name']; ?></a></li>
-                <?php endforeach; ?>
-                </ul>
-        </div>
-<?php endif; ?>
 </div>
 
-<?php include('includes/footer.php'); ?>
+<?php include $base . '/includes/footer.php'; ?>

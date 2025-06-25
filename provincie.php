@@ -1,22 +1,36 @@
 <?php
-  include('includes/array_prov.php');
-  include('includes/header.php');
-  include('includes/utils.php');
-	if(isset($_GET['item'])) {
-		$provincie = strip_bad_chars( $_GET['item'] );
-		$zoek = $provincies[$provincie];
-	}
+  $base = __DIR__;
+  include $base . '/includes/array_prov.php';
+  include $base . '/includes/utils.php';
+
+  $zoek = null;
+  if (isset($_GET['item'])) {
+    $provincie = strip_bad_chars($_GET['item']);
+    if (isset($provincies[$provincie])) {
+      $zoek = $provincies[$provincie];
+    }
+  }
+
+  if (!$zoek) {
+    header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
+    include $base . '/404.php';
+    exit;
+  }
+
+  $metaDescription = $zoek['meta'];
+
+  include $base . '/includes/header.php';
 ?>
 <div class="container">
   <div class="jumbotron my-4">
     <h1 class="text-center"><?php echo $zoek['title']; ?></h1>
     <hr>
-    <p><?php echo $zoek['info']; ?></p>
+    <p><?php echo $zoek['intro']; ?></p>
   </div>
   <div class="row" v-cloak>
     <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item" id="Slankie" v-for="profile in filtered_profiles">
       <div class="card h-100">
-          <a :href="'date-with-' + slugify(profile.name) + '?id=' + profile.id"><img class="card-img-top" :src="profile.src.replace('150x150', '300x300')" :alt="'Date in ' + profile.province + ' with ' + profile.name" :title="'See the profile of ' + profile.name + ' from ' + profile.city" @error="imgError"></a>
+          <a :href="<?php echo $baseUrl; ?>/date-with-' + slugify(profile.name) + '?id=' + profile.id"><img class="card-img-top" :src="profile.src.replace('150x150', '300x300')" :alt="'Date in ' + profile.province + ' with ' + profile.name" :title="'See the profile of ' + profile.name + ' from ' + profile.city" @error="imgError"></a>
           <div class="card-body">
             <div class="card-top">
                 <h4 class="card-title">{{ profile.name }}</h4>  
@@ -28,19 +42,19 @@
               <li class="list-group-item">Province: {{ profile.province }}</li>
             </ul>
           </div>
-          <a :href="'date-with-' + slugify(profile.name) + '?id=' + profile.id" class="card-footer btn btn-primary">View profile</a></div>
+          <a :href="'<?php echo $baseUrl; ?>/date-with-' + slugify(profile.name) + '?id=' + profile.id" class="card-footer btn btn-primary">View profile</a></div>
       </div>
     </div>
   </div><!-- /.row -->
   <script>
-    var api_url= "<?php echo $config['PROVINCE_ENDPOINT'] . '/' . $zoek['name'] . '/120'; ?>";
-  </script> 
+    var api_url = "<?php echo $config['PROVINCE_ENDPOINT'] . '/' . $zoek['name'] . '/120'; ?>";
+  </script>
   <!-- Pagination -->
   <nav class="nav-pag" aria-label="Page navigation">
     <ul class="pagination flex-wrap justify-content-center">
       <li class="page-item">
         <a class="page-link" aria-label="Previous" v-on:click="set_page_number(page-1)"><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a>
-      </li>       
+      </li>
       <li v-for="page_number in max_page_number" class="page-item" v-bind:class="{ active: page_number == page }">
         <a class="page-link" v-on:click="set_page_number(page_number)">{{ page_number }}</a>
       </li>
@@ -56,8 +70,7 @@
     <div class="jumbotron text-center">
       <a href="https://18date.net/sexdate-<?php echo $zoek['img']; ?>" class="btn btn-primary btn-tips" target="_blank">18+ Sexdate <?php echo $zoek['name']; ?></a>
       <a href="https://sex55.net/sexdate-<?php echo $zoek['img']; ?>" class="btn btn-primary btn-tips" target="_blank">55+ Sexdate <?php echo $zoek['name']; ?></a>
-      <a href="https://shemaledaten.net/shemales-<?php echo $zoek['img']; ?>" class="btn btn-primary btn-tips" target="_blank">Shemale sexdate <?php echo $zoek['name']; ?></a>
-    </div>
+      <a href="https://shemaledaten.net/shemale-<?php echo $zoek['img']; ?>" class="btn btn-primary btn-tips" target="_blank">Shemale sexdate <?php echo $zoek['name']; ?></a>
   </div>
 </div> <!-- container -->
-<?php include('includes/footer.php');?>
+<?php include $base . '/includes/footer.php'; ?>

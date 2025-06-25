@@ -1,6 +1,9 @@
 <?php
-define('TITLE', 'Cookie Policy');
-include('includes/header.php');
+$base = __DIR__;
+define('TITLE', 'Cookiebeleid');
+$canonical = 'https://datingcontact.co.uk/cookie-policy';
+$pageTitle = 'Cookie Policy | ';
+include $base . '/includes/header.php';
 ?>
 <div class="container">
 	<div class="jumbotron my-4">
@@ -21,9 +24,9 @@ include('includes/header.php');
 		<p>You can manage or disable cookies through your browser settings. Please note that this may affect the functionality of the website.</p>
 		<h2>More information</h2>
 		<p>For more information about how Google uses cookies, visit:<br>
-		<a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">https://policies.google.com/technologies/partner-sites</a></p>
+		<a href="https://policies.google.com/technologies/partner-sites" target="_blank">https://policies.google.com/technologies/partner-sites</a></p>
 		<p>If you have any questions about our cookie policy, please contact us at <a href="mailto:info@datingcontact.co.uk">info@datingcontact.co.uk</a>.</p>
 		<p>Last updated: June 2025</p>
 	</div>
 </div>
-<?php include('includes/footer.php'); ?>
+<?php include $base . '/includes/footer.php'; ?>
