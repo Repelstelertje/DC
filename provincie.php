@@ -30,7 +30,7 @@
   <div class="row" v-cloak>
     <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item" id="Slankie" v-for="profile in filtered_profiles">
       <div class="card h-100">
-          <a :href="<?php echo $baseUrl; ?>/date-with-' + slugify(profile.name) + '?id=' + profile.id"><img class="card-img-top" :src="profile.src.replace('150x150', '300x300')" :alt="'Date in ' + profile.province + ' with ' + profile.name" :title="'See the profile of ' + profile.name + ' from ' + profile.city" @error="imgError"></a>
+          <a :href="'<?php echo $baseUrl; ?>/date-with-' + slugify(profile.name) + '?id=' + profile.id"><img class="card-img-top" :src="profile.src.replace('150x150', '300x300')" :alt="'Date in ' + profile.province + ' with ' + profile.name" :title="'See the profile of ' + profile.name + ' from ' + profile.city" @error="imgError"></a>
           <div class="card-body">
             <div class="card-top">
                 <h4 class="card-title">{{ profile.name }}</h4>  
