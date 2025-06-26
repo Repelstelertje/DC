@@ -8,15 +8,15 @@
         <li><a href="https://zoekertjesbelgie.be/" target="_blank" class="m-0">Zoekertjes België</a> - </li>
         <li><a href="https://datingnebenan.de/" target="_blank" class="m-0">Dating Nebenan</a> - </li>
         <li><a href="https://e-notifyer.nl/" target="_blank" class="m-0">E-notifyer</a> - </li>
-        <li><a href="/partnerlinks.php" class="m-0">More partner links...</a></li>
+        <li><a href="/partnerlinks" class="m-0">More partner links...</a></li>
     </ul>
     <span class="sub-text">Copyright &copy; <?php echo date('Y'); ?> <?php echo $companyName; ?> | The free datingsite of the UK </span>
-    <span class="policy-links sub-text"><a href="/privacy.php">Privacy Policy</a> | <a href="/cookie-policy.php">Cookie Policy</a></span>
+    <span class="policy-links sub-text"><a href="/privacy">Privacy Policy</a> | <a href="/cookie-policy">Cookie Policy</a></span>
 </footer>
 <!-- Cookie Consent Banner -->
 <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #ccc; font-family: Arial, sans-serif; padding: 20px; z-index: 10000; display: none;">
   <div style="max-width: 960px; margin: auto;">
-    <p style="margin-bottom: 10px;">We use cookies to personalize content and ads, to provide social media features and to analyze our traffic. For more details, see our <a href="/cookie-policy.php" target="_blank">Cookie Policy</a>.</p>
+    <p style="margin-bottom: 10px;">We use cookies to personalize content and ads, to provide social media features and to analyze our traffic. For more details, see our <a href="/cookie-policy" target="_blank">Cookie Policy</a>.</p>
     <form id="cookie-form">
       <label><input type="checkbox" disabled checked> Necessary (required)</label><br>
       <label><input type="checkbox" id="cookie-statistics"> Statistics (e.g. Google Analytics)</label><br>

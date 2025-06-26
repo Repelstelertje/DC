@@ -97,10 +97,22 @@
             $canonicalUrl = $baseUrl . '/' . $script;
         }
     }
+
+    // Page level overrides for canonical URL and title
+    if (isset($canonical) && !empty($canonical)) {
+        $canonicalUrl = $canonical;
+    }
+    if (isset($pageTitle) && !empty($pageTitle)) {
+        $title = $pageTitle;
+    } elseif (defined('TITLE')) {
+        $title = TITLE;
+    }
+
     // Always append site name to the title when not already present
     if (strpos($title, 'Dating Contact') === false) {
         $title .= ' - Dating Contact';
     }
+
     echo '<link rel="canonical" href="' . $canonicalUrl . '" >';
     echo '<title>' . $title . '</title>';
 ?>
@@ -109,9 +121,9 @@
     $default_title = "Dating Contact UK";
     $default_description = "Free dating - Are you looking for a partner or a fun free date? Here you will find more than 10,000 singles. Registration is 100% free.";
     $default_image = $baseUrl . "img/bg.jpg";
-    $default_url = $baseUrl;
+    $default_url = $canonicalUrl;
     // Dynamisch genereren van inhoud gebaseerd op de pagina-URL
-    $current_url = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    $current_url = $canonicalUrl;
     // Mapping van URL-sleutels naar Open Graph gegevens
     $og_title = $default_title;
     $og_description = $default_description;
