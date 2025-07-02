@@ -9,7 +9,7 @@ include $base . '/includes/array_tips.php';
 
 require_once $base . '/includes/utils.php';
 
-$datingtip = 'datingtips';
+$datingtip = 'dating-tips';
 if(isset($_GET['item'])) {
         $candidate = strip_bad_chars($_GET['item']);
         if (isset($datingtips[$candidate])) {
