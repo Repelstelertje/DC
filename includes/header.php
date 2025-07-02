@@ -93,7 +93,10 @@
     // When no query parameters are present, build canonical from script name
     if (empty($_GET)) {
         $script = basename($_SERVER['SCRIPT_NAME']);
-        if ($script !== 'index.php') {
+        if ($script === 'index.php') {
+            // Use the site root for the home page canonical URL
+            $canonicalUrl = $baseUrl . '/';
+        } else {
             $canonicalUrl = $baseUrl . '/' . $script;
         }
     }
