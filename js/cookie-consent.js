@@ -56,17 +56,17 @@ function initializeCookies() {
   }
 }
 function bindCookieForm() {
-  const form = document.getElementById('cookie-form');
-  if (!form) return;
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const statistics = document.getElementById('cookie-statistics').checked;
-    const marketing = document.getElementById('cookie-marketing').checked;
-    setCookieConsent(statistics, marketing);
-    document.getElementById('cookie-banner').style.display = 'none';
-    if (statistics) loadAnalytics();
-    if (marketing) loadMarketing();
-  });
+  const saveBtn = document.getElementById('cookie-save-preferences');
+  if (saveBtn) {
+    saveBtn.addEventListener('click', function() {
+      const statistics = document.getElementById('cookie-statistics').checked;
+      const marketing = document.getElementById('cookie-marketing').checked;
+      setCookieConsent(statistics, marketing);
+      document.getElementById('cookie-banner').style.display = 'none';
+      if (statistics) loadAnalytics();
+      if (marketing) loadMarketing();
+    });
+  }
 
   const acceptAllBtn = document.getElementById('cookie-accept-all');
   if (acceptAllBtn) {
