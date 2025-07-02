@@ -1,6 +1,20 @@
 <?php
 $base = __DIR__;
-define("TITLE", "Daten");
+$pageTitle = 'Profile';
+if (isset($_GET['id'])) {
+    $id = preg_replace('/[^0-9]/', '', $_GET['id']);
+    $apiResponse = @file_get_contents("https://22mlf09mds22.com/profile/get08/" . $id);
+    if ($apiResponse !== false) {
+        $data = json_decode($apiResponse, true);
+        if (isset($data['profile']['name'])) {
+            $pageTitle = 'Date with ' . $data['profile']['name'];
+        } else {
+            $pageTitle = 'Date with ' . $id;
+        }
+    } else {
+        $pageTitle = 'Date with ' . $id;
+    }
+}
 // Determine the referrer ID from the environment if provided
 $ref_id = getenv('REF_ID') ?: '';
 include $base . '/includes/header.php';
