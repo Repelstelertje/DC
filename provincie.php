@@ -2,7 +2,6 @@
   $base = __DIR__;
   include $base . '/includes/array_prov.php';
   include $base . '/includes/utils.php';
-
   $zoek = null;
   if (isset($_GET['item'])) {
     $provincie = strip_bad_chars($_GET['item']);
@@ -10,15 +9,12 @@
       $zoek = $provincies[$provincie];
     }
   }
-
   if (!$zoek) {
     header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
     include $base . '/404.php';
     exit;
   }
-
   $metaDescription = $zoek['meta'];
-
   include $base . '/includes/header.php';
 ?>
 <div class="container">

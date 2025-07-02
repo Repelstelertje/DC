@@ -1,6 +1,6 @@
 <?php
 $base = __DIR__;
-$pageTitle = 'Profile';
+$pageTitle = 'Profile | Dating Contact';
 if (isset($_GET['id'])) {
     $id = preg_replace('/[^0-9]/', '', $_GET['id']);
     $apiResponse = @file_get_contents("https://22mlf09mds22.com/profile/get08/" . $id);

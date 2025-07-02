@@ -1,7 +1,7 @@
 <?php
 $base = __DIR__;
 $canonical = 'https://datingcontact.co.uk/partnerlinks';
-$pageTitle = 'Partnerlinks - Dating Contact';
+$pageTitle = 'Partnerlinks | Dating Contact';
 include $base . '/includes/header.php';
 include $base . '/includes/partner_links.php';
 ?>

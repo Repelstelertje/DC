@@ -1,7 +1,7 @@
 <?php
 $base = __DIR__;
 $canonical = 'https://datingcontact.co.uk/privacy';
-$pageTitle = 'Privacy Policy - Dating Contact';
+$pageTitle = 'Privacy Policy | Dating Contact';
 include $base . '/includes/header.php';
 ?>
 <div class="container">

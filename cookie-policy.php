@@ -1,7 +1,7 @@
 <?php
 $base = __DIR__;
 $canonical = 'https://datingcontact.co.uk/cookie-policy';
-$pageTitle = 'Cookie Policy';
+$pageTitle = 'Cookie Policy | Dating Contact';
 include $base . '/includes/header.php';
 ?>
 <div class="container">

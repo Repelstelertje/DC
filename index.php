@@ -1,12 +1,12 @@
 <?php
 $base = __DIR__;
-$pageTitle = 'Dating Contact: Dating Advertenties UK';
+$pageTitle = 'Dating Ads UK  | Dating Contact';
 include $base . '/includes/header.php';
 ?>
 <div class="container">
     <!-- Jumbotron Header -->
     <div class="jumbotron my-4 text-center">
-        <h1>Dating Contact | UK's best dating site</h1>
+        <h1>Dating Ads UK  | Dating Contact</h1>
         <hr>
         <p>Welcome to <a href="index.php">Dating Contact</a>, the UK's premier dating site, where countless singles find love and companionship across the nation. From the bustling streets of London to the scenic views of the Scottish Highlands, Dating Contact offers a vast network of singles ready to meet that special someone. Whether you're seeking a casual chat or a serious relationship, our platform provides the tools and community to support your journey. Join Dating Contact and start your adventure in the rich and diverse dating landscape of the UK.</p>
         <h2>Find women near you!</h2>
