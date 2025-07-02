@@ -84,7 +84,7 @@ include $base . '/includes/header.php';
                 continue;
             }
         ?>
-        <a href="datingtips-<?php echo $tips; ?>" class="btn btn-primary btn-tips"><?php echo $item['name']; ?></a>
+        <a href="datingtips.php?item=<?php echo $tips; ?>" class="btn btn-primary btn-tips"><?php echo $item['name']; ?></a>
         <?php } ?>
     </div>
     <div id="footer-banner"></div>
