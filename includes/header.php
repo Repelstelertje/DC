@@ -63,7 +63,13 @@
     $canonicalUrl = $baseUrl . $_SERVER['REQUEST_URI'];
     $title = "Dating Contact"; // Default title
     $script = basename($_SERVER['SCRIPT_NAME']);
-    if (isset($_GET['item'])) {
+
+    $requestPath = rtrim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+    if (preg_match('#^/datingtips(?:-([a-z0-9_-]+))?$#i', $requestPath, $matches)) {
+        $slug = $matches[1] ?? '';
+        $canonicalUrl = $baseUrl . '/datingtips' . ($slug ? '-' . $slug : '');
+        $title = 'Dating Tips' . ($slug ? ' ' . htmlspecialchars($slug, ENT_QUOTES, 'UTF-8') : '');
+    } elseif (isset($_GET['item'])) {
         if ($script === 'datingtips.php') {
             $canonicalUrl = $baseUrl . "/datingtips-" . htmlspecialchars($_GET['item']);
             $title = "Dating Tips " . htmlspecialchars($_GET['item']);
