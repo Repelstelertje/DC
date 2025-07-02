@@ -1,5 +1,6 @@
 <?php
 $base = __DIR__;
+include $base . '/includes/array_tips.php';
 $pageTitle = 'Dating Ads UK  | Dating Contact';
 include $base . '/includes/header.php';
 ?>
