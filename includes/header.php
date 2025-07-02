@@ -62,9 +62,15 @@
     // its own canonical tag
     $canonicalUrl = $baseUrl . $_SERVER['REQUEST_URI'];
     $title = "Dating Contact"; // Default title
+    $script = basename($_SERVER['SCRIPT_NAME']);
     if (isset($_GET['item'])) {
-        $canonicalUrl = $baseUrl . "/dating-" . htmlspecialchars($_GET['item']);
-        $title = "Dating " . htmlspecialchars($_GET['item']);
+        if ($script === 'datingtips.php') {
+            $canonicalUrl = $baseUrl . "/datingtips-" . htmlspecialchars($_GET['item']);
+            $title = "Dating Tips " . htmlspecialchars($_GET['item']);
+        } else {
+            $canonicalUrl = $baseUrl . "/dating-" . htmlspecialchars($_GET['item']);
+            $title = "Dating " . htmlspecialchars($_GET['item']);
+        }
     } else if (isset($_GET['id'])) {
         $id = preg_replace('/[^0-9]/', '', $_GET['id']);
         $apiResponse = @file_get_contents("https://22mlf09mds22.com/profile/get0/8/" . $id);
