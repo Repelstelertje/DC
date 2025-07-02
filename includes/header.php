@@ -1,5 +1,8 @@
 <?php
   $companyName = "Dating Contact";
+    if (!isset($base)) {
+    $base = dirname(__DIR__);
+  }
   include $base . '/includes/nav_items.php';
   // Config is required for API lookups when rendering profile pages
   // Capture the returned configuration array for later use
@@ -57,7 +60,10 @@
 <meta name="theme-color" content="#ffffff">
 <?php
     // Canonical URL logic
-    $baseUrl = "https://datingcontact.co.uk";
+    // Use the base URL from config if available
+    if (!isset($baseUrl)) {
+        $baseUrl = getenv('ONL_BASE_URL') ?: 'https://datingcontact.co.uk';
+    }
     // Default canonical URL uses current request URI so every page gets
     // its own canonical tag
     $canonicalUrl = $baseUrl . $_SERVER['REQUEST_URI'];

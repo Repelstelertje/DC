@@ -35,9 +35,9 @@
 <script src="js/cookie-consent.js"></script>
 <script type="text/javascript">
   var topper = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg'];
-  $('<a href="https://testars-consin.icu/543064f4-6080-4845-8f43-30f049426cdf?site={DC}"><img class="align-center" src="img/banners/' + topper[Math.floor(Math.random() * topper.length)] + '" alt="Exciting places to connect"></a>').appendTo('#top-banner');
+  $('<a href="https://testars-consin.icu/543064f4-6080-4845-8f43-30f049426cdf?site={DC}" target="_blank" rel="nofollow noopener"><img class="align-center" src="img/banners/' + topper[Math.floor(Math.random() * topper.length)] + '" alt="Exciting places to connect"></a>').appendTo('#top-banner');
   var footer = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg'];
-  $('<a href="https://testars-consin.icu/543064f4-6080-4845-8f43-30f049426cdf?site={DC}"><img class="align-center" src="img/banners/' + footer[Math.floor(Math.random() * footer.length)] + '" alt="Exciting places to connect"></a>').appendTo('#footer-banner');
+  $('<a href="https://testars-consin.icu/543064f4-6080-4845-8f43-30f049426cdf?site={DC}" target="_blank" rel="nofollow noopener"><img class="align-center" src="img/banners/' + footer[Math.floor(Math.random() * footer.length)] + '" alt="Exciting places to connect"></a>').appendTo('#footer-banner');
 </script>
 <script src="https://unpkg.com/vue-router@3.5.3/dist/vue-router.js"></script>
   <?php
