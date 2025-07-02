@@ -55,6 +55,13 @@ function initializeCookies() {
     if (consent.marketing) loadMarketing();
   }
 }
+
+function hideCookieBanner() {
+  const banner = document.getElementById('cookie-banner');
+  if (banner) {
+    banner.style.display = 'none';
+  }
+}
 function bindCookieForm() {
   const saveBtn = document.getElementById('cookie-save-preferences');
   if (saveBtn) {
@@ -62,7 +69,7 @@ function bindCookieForm() {
       const statistics = document.getElementById('cookie-statistics').checked;
       const marketing = document.getElementById('cookie-marketing').checked;
       setCookieConsent(statistics, marketing);
-      document.getElementById('cookie-banner').style.display = 'none';
+      hideCookieBanner();
       if (statistics) loadAnalytics();
       if (marketing) loadMarketing();
     });
@@ -77,7 +84,7 @@ function acceptAllCookies() {
   document.getElementById('cookie-statistics').checked = true;
   document.getElementById('cookie-marketing').checked = true;
   setCookieConsent(true, true);
-  document.getElementById('cookie-banner').style.display = 'none';
+  hideCookieBanner();
   loadAnalytics();
   loadMarketing();
 }
