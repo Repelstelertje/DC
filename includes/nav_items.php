@@ -62,9 +62,5 @@
                                                 'slug' => 'datingtips.php?item=free-dating',
                                                 'title' => 'Free Dating'
                                         ),
-					array(
-						'slug' => '',
-						'title' => ''
-					),
 				);
 ?>
