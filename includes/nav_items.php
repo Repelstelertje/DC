@@ -52,15 +52,15 @@
 					),
 				);
 
-	$navItems2 = array(
+       $navItems2 = array(
 
-                                        array(
-                                                'slug' => 'datingtips.php',
-                                                'title' => 'Dating tips'
-                                        ),
-                                        array(
-                                                'slug' => 'datingtips.php?item=free-dating',
-                                                'title' => 'Free Dating'
-                                        ),
-				);
+                                       array(
+                                               'slug' => 'datingtips',
+                                               'title' => 'Dating tips'
+                                       ),
+                                       array(
+                                               'slug' => 'datingtips-free-dating',
+                                               'title' => 'Free Dating'
+                                       ),
+                               );
 ?>
