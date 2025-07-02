@@ -2,8 +2,6 @@
 $base = __DIR__;
 define("TITLE", "Dating Tips");
 
-$canonical = 'https://datingcontact.co.uk/datingtips';
-$pageTitle = 'Dating Tips - Dating Contact';
 
 include $base . '/includes/array_tips.php';
 
@@ -15,6 +13,12 @@ if(isset($_GET['item'])) {
         if (isset($datingtips[$candidate])) {
                 $datingtip = $candidate;
         }
+}
+$canonical = 'https://datingcontact.co.uk/datingtips';
+$pageTitle = 'Dating Tips';
+if ($datingtip !== 'dating-tips') {
+        $canonical = 'https://datingcontact.co.uk/datingtips-' . $datingtip;
+        $pageTitle = 'Dating Tips ' . $datingtip;
 }
 $tips = $datingtips[$datingtip] ?? null;
 
