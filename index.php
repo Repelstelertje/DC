@@ -84,8 +84,12 @@ include $base . '/includes/header.php';
             if (empty($tips)) {
                 continue;
             }
+            $tipHref = '/datingtips';
+            if ($tips !== 'dating-tips') {
+                $tipHref .= '-' . $tips;
+            }
         ?>
-        <a href="datingtips.php?item=<?php echo $tips; ?>" class="btn btn-primary btn-tips"><?php echo $item['name']; ?></a>
+        <a href="<?php echo $tipHref; ?>" class="btn btn-primary btn-tips"><?php echo $item['name']; ?></a>
         <?php } ?>
     </div>
     <div id="footer-banner"></div>
