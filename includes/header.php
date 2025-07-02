@@ -123,7 +123,7 @@
 
     // Always append site name to the title when not already present
     if (strpos($title, 'Dating Contact') === false) {
-        $title .= ' - Dating Contact';
+        $title .= ' | Dating Contact';
     }
 
     echo '<link rel="canonical" href="' . $canonicalUrl . '" >';

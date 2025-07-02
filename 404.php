@@ -1,6 +1,6 @@
 <?php
 $base = __DIR__;
-$pageTitle = '404 | Page not found';
+$pageTitle = 'Page not found | Dating Contact';
 include $base . '/includes/header.php';
 ?>
 
