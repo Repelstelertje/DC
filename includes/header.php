@@ -119,8 +119,6 @@
     }
     if (isset($pageTitle) && !empty($pageTitle)) {
         $title = $pageTitle;
-    } elseif (defined('TITLE')) {
-        $title = TITLE;
     }
 
     // Always append site name to the title when not already present

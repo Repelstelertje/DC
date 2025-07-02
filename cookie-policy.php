@@ -1,8 +1,7 @@
 <?php
 $base = __DIR__;
-define('TITLE', 'Cookiebeleid');
 $canonical = 'https://datingcontact.co.uk/cookie-policy';
-$pageTitle = 'Cookie Policy | ';
+$pageTitle = 'Cookie Policy';
 include $base . '/includes/header.php';
 ?>
 <div class="container">
